@@ -1,0 +1,34 @@
+import java.util.*;
+
+class Employee{
+    int hra;
+    int pf;
+    Employee(int hra,int pf){
+        this.hra=hra;
+        this.pf=pf;
+    }
+    
+}
+class SortbyPay implements Comparator<Employee>{
+    public int compare(Employee a,Employee b){
+        if(a.hra == b.hra){
+            return b.pf -a.pf;      
+          }
+    
+    return a.hra-b.hra;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	   ArrayList<Employee> arr=new ArrayList<>();
+	   arr.add(new Employee(10,12));
+	   arr.add(new Employee(15,19));
+	   arr.add(new Employee(18,17));
+	   arr.add(new Employee(14,14));
+	   Collections.sort(arr,new SortbyPay());
+	   for(int i=0;i<arr.size();i++){
+	       System.out.println("("+arr.get(i).hra + " ,"+arr.get(i).pf+")");
+	   }
+	}
+}
